@@ -74,7 +74,7 @@ class RemoveQuoteItemsTest extends \PHPUnit\Framework\TestCase
             $this->assertNull($this->session->getCustomer(), 'Customer is not login for test');
         }else{
             $this->assertGreaterThan(0,count($this->quote->getAllItems()), 'items can\'t find');
-            $this->assertEquals(1, count($this->quote->getAllItems()), 'current qty is one');
+            $this->assertEquals(2, count($this->quote->getAllItems()), 'current qty is one');
             $sku = '';
             foreach ($this->quote->getAllItems() as $item ) {
                 $sku = $item->getSku();
