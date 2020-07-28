@@ -91,11 +91,7 @@ class RemoveQuoteItemsTest extends \PHPUnit\Framework\TestCase
         if ($this->quote){
             return $this->quote;
         }
-//        if ($this->session->isLoggedIn()){
-//
-//        }else{
-//
-//        }
+
         $quoteId = $this->objectManager->create(QuoteManagement::class)
             ->createEmptyCart();//createEmptyCartForCustomer
         $quote = $this->objectManager->create(Quote::class)
@@ -114,19 +110,12 @@ class RemoveQuoteItemsTest extends \PHPUnit\Framework\TestCase
         $obj->setFormKey($this->objectManager->create(FormKey::class)->getFormKey());
         $obj->setProduct($product);
         $product->setQty(1);
-//        $params = array(
-//            'form_key' => $this->objectManager->create(FormKey::class)->getFormKey(),
-//            'product' => $productId,
-//            'qty'   =>1
-//        );
         $this->getQuote()->addProduct($product,$obj );
 
     }
 
     protected function loginByCustomer()
     {
-//        $session = $this->objectManager->get(Session::class);
-//        $session->loginById($customerId);
         $this->session->loginById(self::CUSTOMER_ID);
         $this->session->regenerateId();
     }
